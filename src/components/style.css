@@ -1,0 +1,22 @@
+.Painel {
+    text-align: center;
+}
+
+.Palavra {
+    display: flex;
+    flex-direction: row;
+}
+
+.Letra {
+    height: 50px;
+    width: 50px;
+    border: 1px solid white;
+    margin-bottom: 8px;
+    margin-right: 4px;
+    margin-left: 4px;
+
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+    vertical-align: center;
+}
