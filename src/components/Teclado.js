@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { PalavraDoDia } from "../App";
 import ChutesContext from "../contexts/chutes_context";
 
 import "./style.css";
@@ -32,14 +33,28 @@ const Teclado = () => {
 };
 
 const TeclaEnter = () => {
-    const { tentativa, setChutes, setIndexTentativa, setTentativa } =
-        useContext(ChutesContext);
+    const {
+        tentativa,
+        setChutes,
+        indexTentativa,
+        setIndexTentativa,
+        setTentativa,
+        setTerminou,
+    } = useContext(ChutesContext);
 
     const handleClick = () => {
-        if (tentativa.length === 5) {
-            setChutes((e) => [...e, tentativa]);
-            setIndexTentativa((e) => e + 1);
-            setTentativa("");
+        if (tentativa.length !== 5) {
+            return;
+        }
+
+        setChutes((e) => [...e, tentativa]);
+        if (PalavraDoDia === tentativa) {
+            return setTerminou(true);
+        }
+        setIndexTentativa((e) => e + 1);
+        setTentativa("");
+        if (indexTentativa >= 4) {
+            return setTerminou(true);
         }
     };
     return (
@@ -64,9 +79,12 @@ const TeclaApagar = () => {
 };
 
 const Tecla = ({ letra }) => {
-    const { setTentativa } = useContext(ChutesContext);
+    const { terminou, setTentativa } = useContext(ChutesContext);
 
     const onClickHandle = (value) => {
+        if (terminou) {
+            return;
+        }
         setTentativa((e) => e + value);
     };
 

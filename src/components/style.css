@@ -1,5 +1,3 @@
-
-
 .Palavra {
     display: flex;
     flex-direction: row;
@@ -48,4 +46,23 @@
     flex-direction: column;
     gap: 10px;
     align-items: center;
+}
+
+.Preto {
+    background-color: black;
+}
+
+.Amarelo {
+    background-color: rgb(181, 159, 59);
+}
+
+.Verde {
+    background-color: green;
+}
+
+.Ganhou {
+    background-color: black;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
 }
