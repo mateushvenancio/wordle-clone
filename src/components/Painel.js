@@ -1,23 +1,36 @@
 import "./style.css";
+import { useContext } from "react";
+import ChutesContext from "../contexts/chutes_context";
 
-const Painel = ({ chutes }) => {
+const Painel = () => {
+    const { chutes } = useContext(ChutesContext);
+
     return (
         <div className="Painel">
-            <Palavra />
-            <Palavra />
-            <Palavra />
-            <Palavra />
-            <Palavra />
+            <Palavra palavra={(chutes || [])[0] || ""} />
+            <Palavra palavra={(chutes || [])[1] || ""} />
+            <Palavra palavra={(chutes || [])[2] || ""} />
+            <Palavra palavra={(chutes || [])[3] || ""} />
+            <Palavra palavra={(chutes || [])[4] || ""} />
         </div>
     );
 };
 
 const Palavra = ({ palavra }) => {
-    let letter1 = "R";
-    let letter2 = "A";
-    let letter3 = "I";
-    let letter4 = "O";
-    let letter5 = "U";
+    let letter1 = "";
+    let letter2 = "";
+    let letter3 = "";
+    let letter4 = "";
+    let letter5 = "";
+
+    if (palavra) {
+        const novaPalavra = palavra.toUpperCase();
+        letter1 = novaPalavra[0];
+        letter2 = novaPalavra[1];
+        letter3 = novaPalavra[2];
+        letter4 = novaPalavra[3];
+        letter5 = novaPalavra[4];
+    }
 
     return (
         <div className="Palavra">

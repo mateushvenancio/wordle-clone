@@ -1,6 +1,4 @@
-.Painel {
-    text-align: center;
-}
+
 
 .Palavra {
     display: flex;
@@ -19,4 +17,26 @@
     text-align: center;
     line-height: 50px;
     vertical-align: center;
+}
+
+.LinhaTeclado {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+}
+
+.Tecla {
+    height: 50px;
+    width: 30px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    line-height: 50px;
+    background-color: grey;
+}
+
+.Teclado {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
 }
