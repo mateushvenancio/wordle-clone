@@ -5,13 +5,24 @@ import Teclado from "./components/Teclado";
 import ChutesContext from "./contexts/chutes_context";
 
 const App = () => {
-    const [chutes, setChutes] = useState(["raiou", "mente", "aa"]);
+    const [chutes, setChutes] = useState([]);
+    const [tentativa, setTentativa] = useState("");
+    const [indexTentativa, setIndexTentativa] = useState(0);
 
     return (
         <div className="App">
             <h2>WORDLE</h2>
             <hr />
-            <ChutesContext.Provider value={{ chutes, setChutes }}>
+            <ChutesContext.Provider
+                value={{
+                    chutes,
+                    setChutes,
+                    tentativa,
+                    setTentativa,
+                    indexTentativa,
+                    setIndexTentativa,
+                }}
+            >
                 <div className="Coluna">
                     <Painel />
                     <div className="Espacamento"></div>

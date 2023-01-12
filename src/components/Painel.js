@@ -3,15 +3,35 @@ import { useContext } from "react";
 import ChutesContext from "../contexts/chutes_context";
 
 const Painel = () => {
-    const { chutes } = useContext(ChutesContext);
+    const { chutes, indexTentativa, tentativa } = useContext(ChutesContext);
 
     return (
         <div className="Painel">
-            <Palavra palavra={(chutes || [])[0] || ""} />
-            <Palavra palavra={(chutes || [])[1] || ""} />
-            <Palavra palavra={(chutes || [])[2] || ""} />
-            <Palavra palavra={(chutes || [])[3] || ""} />
-            <Palavra palavra={(chutes || [])[4] || ""} />
+            <Palavra
+                palavra={
+                    indexTentativa === 0 ? tentativa : (chutes || [])[0] || ""
+                }
+            />
+            <Palavra
+                palavra={
+                    indexTentativa === 1 ? tentativa : (chutes || [])[1] || ""
+                }
+            />
+            <Palavra
+                palavra={
+                    indexTentativa === 2 ? tentativa : (chutes || [])[2] || ""
+                }
+            />
+            <Palavra
+                palavra={
+                    indexTentativa === 3 ? tentativa : (chutes || [])[3] || ""
+                }
+            />
+            <Palavra
+                palavra={
+                    indexTentativa === 4 ? tentativa : (chutes || [])[4] || ""
+                }
+            />
         </div>
     );
 };
